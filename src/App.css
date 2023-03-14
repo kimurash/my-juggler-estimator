@@ -2,37 +2,114 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+body{
+  color: #2a2e2e;
+  /* background-color: aliceblue; */
+  background-color: #f9f3ee;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* .control-panel{} */
+
+/* カウンタ全体 */
+.counter{
+  display: inline-block;
+  text-align: center;
+  padding: 10px;
+  border-style: solid;
+  margin: 10px;
+}
+
+/* カウント対象 */
+/* .countee-title{} */
+
+/* 回数, 確率 */
+.count, .likelihood{
+  background-color: snow;
+  padding: 5px 10px;
+  border: inset;
+}
+
+/* ボタン */
+.btn{
+  padding: 5px 20px;
+  border: none;
+  /* box-shadow: 2px 2px 3px #999; */
+}
+
+.btn:active{
+  transform: translateY(4px);
+  border-bottom: none;
+  margin-bottom: 4px;
+}
+
+.count-up{
+  background-color: #d86681;
+  border-bottom: solid 4px #956270;
+}
+
+.count-down{
+  background-color: #668ad8;
+  border-bottom: solid 4px #627295;
+}
+
+.arrow{
+  width: 0px;
+  height: 0px;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.up {
+  border-bottom: 15px solid white;
+  margin-top: 35%;
+  margin-bottom: 60%;
+}
+
+.down{
+  border-top: 15px solid white;
+  margin-top: 60%;
+  margin-bottom: 35%;
+}
+
+/* 推定結果 */
+.estimation{
+  background-color: snow;
+  padding: 5px 10px;
+  border-style: inset;
+}
+
+/* 公称値の表 */
+table{
+  padding: 0px;
+  border-width: 2px 0px;
+  border-style: solid;
+  border-color: black;
+  border-spacing: 0px;
+  margin: 10px auto
+}
+
+th, td{
+  padding: 5px 15px;
+  border-width: 1px 0px;
+  border-style: solid;
+  border-color: gray;
+  margin: 0px;
+}
+
+th{
+  text-align: center;
+  font-weight: bold;
+  background-color: lightsteelblue;
+  margin: 0px;
+}
+
+td{
+  background-color: white;
+  text-align: right;
 }
