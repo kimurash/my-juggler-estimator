@@ -2,25 +2,25 @@
   text-align: center;
 }
 
-.App-header {
-  align-items: center;
-}
-
 body{
   color: #2a2e2e;
-  /* background-color: aliceblue; */
   background-color: #f9f3ee;
 }
 
-/* .control-panel{} */
+/* 設定推定 */
+.control-panel{
+  white-space: nowrap; /* 改行しない */
+  overflow-x: scroll; /* 収まらない場合はスクロール */
+  padding: 0;
+}
 
-/* カウンタ全体 */
+/* 個々のカウンタ */
 .counter{
-  display: inline-block;
+  display: inline-block; /* 横並び+コンテンツに応じた幅 */
   text-align: center;
   padding: 10px;
   border-style: solid;
-  margin: 10px;
+  margin: 0 10px;
 }
 
 /* カウント対象 */
@@ -33,7 +33,6 @@ body{
   border: inset;
 }
 
-/* ボタン */
 .btn{
   padding: 5px 20px;
   border: none;
@@ -41,9 +40,9 @@ body{
 }
 
 .btn:active{
-  transform: translateY(4px);
   border-bottom: none;
   margin-bottom: 4px;
+  transform: translateY(4px);
 }
 
 .count-up{
@@ -57,8 +56,8 @@ body{
 }
 
 .arrow{
-  width: 0px;
-  height: 0px;
+  width: 0;
+  height: 0;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
   margin-left: auto;
@@ -77,7 +76,6 @@ body{
   margin-bottom: 35%;
 }
 
-/* 推定結果 */
 .estimation{
   background-color: snow;
   padding: 5px 10px;
@@ -86,30 +84,118 @@ body{
 
 /* 公称値の表 */
 table{
-  padding: 0px;
-  border-width: 2px 0px;
+  display: block; /* tableタグのデフォルト値はtable */
+  overflow-x: scroll; /* 収まらない場合はスクロール */
+  width: 80%;
+  max-width: 700px;
+  padding: 0;
+  border-width: 2px 0;
   border-style: solid;
   border-color: black;
-  border-spacing: 0px;
+  border-spacing: 0;
   margin: 10px auto
 }
 
+/* スクロールが必要ない場合に表の右側に発生する余計な余白を無くす */
+table tbody{
+  display: table;
+  width: 100%;
+}
+
 th, td{
+  white-space: nowrap; /* 改行しない */
   padding: 5px 15px;
-  border-width: 1px 0px;
+  border-width: 1px 0;
   border-style: solid;
   border-color: gray;
-  margin: 0px;
+  margin: 0;
 }
 
 th{
   text-align: center;
   font-weight: bold;
   background-color: lightsteelblue;
-  margin: 0px;
+  margin: 0;
 }
 
 td{
   background-color: white;
   text-align: right;
+}
+
+hr{
+  width: 80%;
+  max-width: 800px;
+  height: 0;
+  border-radius: 2px;
+  border: 2px solid hsl(0, 0%, 60%);
+  margin: 20px auto;
+}
+
+/* 収支計算 */
+.calculator{
+  display: flex;
+  align-items: flex-start; /* 上寄せ */
+  justify-content: center; /* 左右中央寄せ */
+}
+
+/* 算術演算子 */
+.formula-symbol{
+  align-self: center;
+  font-size: x-large;
+  font-weight: bold;
+  margin-top: -20px; /* 微調整 */
+}
+
+/* 金額表示部 */
+.amount-form{
+  width: 30%;
+  max-width: 250px;
+  text-align: center;
+  padding: 10px 0;
+  /* border: solid; */
+  margin: 0 5px 20px; /* 上 左右 下 */
+}
+
+.amount-form h3{
+  margin: 0 auto;
+}
+
+.amount-form input{
+  width: 90%;
+  text-align: center; /* フォーム内の中央寄せ */
+  font-size: 15px;
+  padding: 5px 0;
+  margin: 5px 0;
+}
+
+.amount-form.benefit-zone{
+  /* 入力フォームより幅を狭める */
+  width: 30%;
+  max-width: 200px;
+}
+
+.benefit{
+  width: 90%;
+  background-color: snow;
+  padding: 5px 0;
+  border: inset;
+  margin: 5px auto; /* 中央寄せが効かなかったため */
+}
+
+/* エラーメッセージ */
+.error-msg{
+  width: 90%;
+  color: #f9f3ee; /* 背景と同じ色 */
+  font-size: 13px;
+  font-weight: bold;
+  padding: 5px 0;
+  border-radius: 5px;
+  margin: 0 auto;
+}
+
+/* エラー時のみ可視化される */
+.error-msg.on-error{
+  color: white;
+  background-color: #d01137;
 }

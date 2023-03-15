@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
+import BalanceCalculator from './components/BalanceCalculator';
 import NominalTable from './components/NominalTable';
 import RecordManager from './components/RecordManager';
 import { Estimation, NominalType, ResultType, SlotRecord } from './Types';
@@ -10,7 +11,7 @@ const nominalValue: Record<NominalType, number>[] = [
     regSingle: 1/655.36,
     regWithCherry: 1/1092.27,
     totalBonus: 1/163.8,
-    grape: 1/5.9,
+    grape: 1/5.9
   },
   { // 設定2
     big: 1/270.8,
@@ -185,6 +186,9 @@ function App() {
       <div>
         <NominalTable nominalValue={nominalValue} />
       </div>
+      <hr />
+      <h2 style={{margin: '5px'}}>収支計算</h2>
+      <BalanceCalculator />
     </div>
   );
 }
