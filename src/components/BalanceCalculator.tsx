@@ -91,7 +91,7 @@ const BalanceCalculator: React.FC = () => {
       </div>
       <div className="formula-symbol">=</div>
       <div className="amount-form benefit-zone">
-        <h3>粗利益</h3>
+        <h3>利益</h3>
         <div className="benefit">{ balance.benefit }</div>
       </div>
     </div>

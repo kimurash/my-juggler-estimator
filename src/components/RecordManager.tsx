@@ -1,5 +1,6 @@
 import React from "react";
 import { SlotRecord, ResultType } from "../Types";
+import { useLongPress } from "../hooks/useLongPress";
 
 type Props = {
   // key属性は子コンポーネントに渡せない
@@ -83,6 +84,10 @@ const RecordManager: React.FC<Props> = (props) => {
     }
   }
 
+  // ボタン長押しのイベントハンドラ
+  const longCountUp = useLongPress(countUp, 100)
+  const longCountDown = useLongPress(countDown, 100)
+
   const displayedValue = props.record.get(props.mapkey)
 
   return(
@@ -92,7 +97,7 @@ const RecordManager: React.FC<Props> = (props) => {
           displayedValue ? displayedValue.title : 'Not Found'
         }
       </h3>
-      <button className="btn count-up" onClick={countUp} >
+      <button className="btn count-up" onClick={countUp} {...longCountUp}>
         <div className="arrow up"></div>
       </button>
       <h3 className="count">
@@ -100,7 +105,7 @@ const RecordManager: React.FC<Props> = (props) => {
           displayedValue ? displayedValue.count : 'Not Found'
         }
       </h3>
-      <button className="btn count-down" onClick={countDown} >
+      <button className="btn count-down" onClick={countDown} {...longCountDown}>
         <div className="arrow down"></div>
       </button>
       <h3 className="likelihood">
