@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import BalanceCalculator from './components/BalanceCalculator';
 import NominalTable from './components/NominalTable';

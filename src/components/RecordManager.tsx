@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Dispatch, SetStateAction} from "react";
 import { SlotRecord, ResultType } from "../Types";
 import { useLongPress } from "../hooks/useLongPress";
 
@@ -6,7 +6,7 @@ type Props = {
   // key属性は子コンポーネントに渡せない
   mapkey: ResultType,
   record: Map<ResultType, SlotRecord>,
-  setRecord: React.Dispatch<React.SetStateAction<Map<ResultType, SlotRecord>>>
+  setRecord: Dispatch<SetStateAction<Map<ResultType, SlotRecord>>>
 }
 
 const RecordManager: React.FC<Props> = (props) => {

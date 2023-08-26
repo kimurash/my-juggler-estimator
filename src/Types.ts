@@ -7,12 +7,12 @@ export type SlotRecord = {
 
 // 記録対象のゲーム結果
 export type ResultType =
-  | 'big'
-  | 'regSingle'
-  | 'regWithCherry'
-  | 'totalBonus'
-  | 'grape'
-  | 'lose'
+| 'big'
+| 'regSingle'
+| 'regWithCherry'
+| 'totalBonus'
+| 'grape'
+| 'lose'
 
 // 公称値に'はずれ'は含まれない
 export type NominalType = Exclude<ResultType, 'lose'>
