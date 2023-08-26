@@ -1,19 +1,20 @@
-import React, {Dispatch, SetStateAction} from "react";
+import React, {useContext} from "react";
 import { SlotRecord, ResultType } from "../Types";
 import { useLongPress } from "../hooks/useLongPress";
+import { RecordContext } from "../App";
 
 type Props = {
   // key属性は子コンポーネントに渡せない
   mapkey: ResultType,
-  record: Map<ResultType, SlotRecord>,
-  setRecord: Dispatch<SetStateAction<Map<ResultType, SlotRecord>>>
 }
 
 const RecordManager: React.FC<Props> = (props) => {
+  const {record, setRecord} = useContext(RecordContext)
+
   const countUp = () => {
     // console.log('count up')
 
-    props.setRecord((prevState) => {
+    setRecord((prevState) => {
 /*
       FIXME: Strict Modeでは2回実行される
       recordがAppで完結していないことが原因かもしれない
@@ -42,7 +43,7 @@ const RecordManager: React.FC<Props> = (props) => {
   const countDown = () => {
     // console.log('count down')
 
-    props.setRecord((prevState) => {
+    setRecord((prevState) => {
       // FIXME: Strict Modeでは2回実行される
       let sumCount = 0
       const newRecord = new Map<ResultType, SlotRecord>()
@@ -88,7 +89,7 @@ const RecordManager: React.FC<Props> = (props) => {
   const longCountUp = useLongPress(countUp, 100)
   const longCountDown = useLongPress(countDown, 100)
 
-  const displayedValue = props.record.get(props.mapkey)
+  const displayedValue = record.get(props.mapkey)
 
   return(
     <div className="counter">

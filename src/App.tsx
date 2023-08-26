@@ -1,9 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, createContext } from 'react';
 import './App.css';
 import BalanceCalculator from './components/BalanceCalculator';
 import NominalTable from './components/NominalTable';
 import RecordManager from './components/RecordManager';
-import { Estimation, NominalType, ResultType, SlotRecord } from './Types';
+import { Estimation, NominalType, ResultType, SlotRecord, RecordContextValue } from './Types';
+
+export const RecordContext = createContext({} as RecordContextValue)
 
 const nominalValue: Record<NominalType, number>[] = [
   { // 設定1
@@ -156,12 +158,15 @@ function App() {
 
     for(const key of initialState.keys()){
       list.push(
-        <RecordManager
-          key={key}
-          mapkey={key}
-          record={record}
-          setRecord={setRecord}
-        />
+        <RecordContext.Provider value={{
+          record,
+          setRecord
+        }}>
+          <RecordManager
+            key={key}
+            mapkey={key}
+          />
+        </RecordContext.Provider>
       )
     }
 

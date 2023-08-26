@@ -1,3 +1,5 @@
+import { Dispatch, SetStateAction } from "react"
+
 // コンポーネントで管理する情報
 export type SlotRecord = {
   title: string,
@@ -13,6 +15,11 @@ export type ResultType =
 | 'totalBonus'
 | 'grape'
 | 'lose'
+
+export type RecordContextValue = {
+  record: Map<ResultType, SlotRecord>,
+  setRecord: Dispatch<SetStateAction<Map<ResultType, SlotRecord>>>
+}
 
 // 公称値に'はずれ'は含まれない
 export type NominalType = Exclude<ResultType, 'lose'>
