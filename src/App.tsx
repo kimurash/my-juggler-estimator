@@ -158,12 +158,13 @@ function App() {
 
     for(const key of initialState.keys()){
       list.push(
-        <RecordContext.Provider value={{
-          record,
-          setRecord
-        }}>
+        <RecordContext.Provider
+          key={key}
+          value={{
+            record,
+            setRecord
+          }}>
           <RecordManager
-            key={key}
             mapkey={key}
           />
         </RecordContext.Provider>

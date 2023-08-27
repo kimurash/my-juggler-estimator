@@ -15,11 +15,6 @@ const RecordManager: React.FC<Props> = (props) => {
     // console.log('count up')
 
     setRecord((prevState) => {
-/*
-      FIXME: Strict Modeでは2回実行される
-      recordがAppで完結していないことが原因かもしれない
-      stateは本来単一のコンポーネントで完結しているべき
-*/
       let sumCount = 0
       const newRecord = new Map<ResultType, SlotRecord>()
 
@@ -44,7 +39,6 @@ const RecordManager: React.FC<Props> = (props) => {
     // console.log('count down')
 
     setRecord((prevState) => {
-      // FIXME: Strict Modeでは2回実行される
       let sumCount = 0
       const newRecord = new Map<ResultType, SlotRecord>()
 
