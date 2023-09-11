@@ -1,4 +1,7 @@
 import { useEffect, useState, createContext } from 'react';
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import 'react-tabs/style/react-tabs.css';
+
 import './App.css';
 import BalanceCalculator from './components/BalanceCalculator';
 import NominalTable from './components/NominalTable';
@@ -179,22 +182,32 @@ function App() {
       <header className="App-header">
         <h2>マイジャグラー5 設定推定</h2>
       </header>
-      <div className='control-panel'>
-        { listManager() }
-      </div>
-      <div>
-        <h3>
-          推定結果: <span className='estimation'>{
-            estimation === -1 ? 'カウントしてください' : `設定${estimation}`
-          }</span>
-        </h3>
-      </div>
-      <div>
-        <NominalTable nominalValue={nominalValue} />
-      </div>
-      <hr />
-      <h2 style={{margin: '5px'}}>収支計算</h2>
-      <BalanceCalculator />
+      <Tabs>
+        <TabList>
+          <Tab>設定推定</Tab>
+          <Tab>収支計算</Tab>
+        </TabList>
+
+        <TabPanel>
+          <div className='control-panel'>
+            { listManager() }
+          </div>
+          <div>
+            <h3>
+              推定結果: <span className='estimation'>{
+                estimation === -1 ? 'カウントしてください' : `設定${estimation}`
+              }</span>
+            </h3>
+          </div>
+          <div>
+            <NominalTable nominalValue={nominalValue} />
+          </div>
+        </TabPanel>
+
+        <TabPanel>
+          <BalanceCalculator />
+        </TabPanel>
+      </Tabs>
     </div>
   );
 }
