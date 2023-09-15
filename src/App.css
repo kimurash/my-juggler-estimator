@@ -123,75 +123,88 @@ td{
   text-align: right;
 }
 
-hr{
-  width: 80%;
-  max-width: 800px;
-  height: 0;
-  border-radius: 2px;
-  border: 2px solid hsl(0, 0%, 60%);
-  margin: 20px auto;
-}
-
 /* 収支計算 */
-.calculator{
-  display: flex;
-  align-items: flex-start; /* 上寄せ */
-  justify-content: center; /* 左右中央寄せ */
-}
-
-/* 算術演算子 */
-.formula-symbol{
-  align-self: center;
-  font-size: x-large;
-  font-weight: bold;
-  margin-top: -20px; /* 微調整 */
-}
-
-/* 金額表示部 */
-.amount-form{
-  width: 30%;
-  max-width: 250px;
-  text-align: center;
-  padding: 10px 0;
-  /* border: solid; */
-  margin: 0 5px 20px; /* 上 左右 下 */
-}
-
-.amount-form h3{
+.calculator .calc-container{
+  width: 95%;
+  display: grid;
   margin: 0 auto;
+  grid-template-rows: 50px 50px 50px 50px;
+  grid-template-columns: 40% 60%;
 }
 
-.amount-form input{
-  width: 90%;
+@media only screen and (max-width: 480px){ /* スマホ縦向き */
+  .calculator .calc-container{
+    grid-template-columns: 30% 70%;
+  }
+}
+
+.calculator .calc-container{
+  .income-title{
+    grid-row: 1;
+    grid-column: 1;
+  }
+  .income-amount{
+    grid-row: 1;
+    grid-column: 2;
+  }
+
+  .invest-title{
+    grid-row: 2;
+    grid-column: 1;
+  }
+  .invest-amount{
+    grid-row: 2;
+    grid-column: 2;
+  }
+
+  .benefit-title{
+    grid-row: 3;
+    grid-column: 1;
+  }
+  .benefit-amount{
+    grid-row: 3;
+    grid-column: 2;
+  }
+
+  .error-msg{
+    grid-row: 4;
+    grid-column: 2;
+  }
+}
+
+.amount-name{
+  text-align: right;
+  margin: 10px 5px;
+}
+
+/* 金額入力部 */
+.amount-form{
+  max-width: 250px;
   text-align: center; /* フォーム内の中央寄せ */
   font-size: 15px;
+  /* 上下のpaddingが変化しない */
   padding: 5px 0;
-  margin: 5px 0;
+  margin: 5px 5px;
 }
 
-.amount-form.benefit-zone{
-  /* 入力フォームより幅を狭める */
-  width: 30%;
-  max-width: 200px;
-}
-
-.benefit{
-  width: 90%;
+/* 利益表示部 */
+.calc-container .benefit-zone{
+  max-width: 250px;
   background-color: snow;
   padding: 5px 0;
   border: inset;
-  margin: 5px auto; /* 中央寄せが効かなかったため */
+  margin: 5px 5px;
 }
 
 /* エラーメッセージ */
 .error-msg{
-  width: 90%;
+  width: fit-content;
   color: #f9f3ee; /* 背景と同じ色 */
-  font-size: 13px;
+  font-size: medium;
   font-weight: bold;
-  padding: 5px 0;
+  padding: 5px 10px;
   border-radius: 5px;
-  margin: 0 auto;
+  margin: 5px 5px 10px; /* 上 左右 下*/
 }
 
 /* エラー時のみ可視化される */

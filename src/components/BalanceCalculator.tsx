@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, ChangeEvent } from "react"
 import { useForm } from "react-hook-form"
 
 // ユーザが入力する値
@@ -21,7 +21,7 @@ const BalanceCalculator: React.FC = () => {
     benefit: 0
   })
 
-  const handleBalance = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleBalance = (event: ChangeEvent<HTMLInputElement>) => {
     setBalance((prevState) => {
       const targetValue = Number(event.target.value)
       if(isNaN(targetValue)){
@@ -54,9 +54,11 @@ const BalanceCalculator: React.FC = () => {
 
   return(
     <div className="calculator">
-      <div className="amount-form">
-        <h3>収入</h3>
+      <div className="calc-container">
+
+        <h3 className="income-title amount-name">収入</h3>
         <input
+          className="income-ammount amount-form"
           type="text"
           placeholder="収入を入力してください"
           {...register('income', {
@@ -67,16 +69,12 @@ const BalanceCalculator: React.FC = () => {
             onChange: (event) => { handleBalance(event) }
           })}
         />
-        <p className={`error-msg ${errors.income && 'on-error'}`}>
-          { errors.income ? errors.income.message : 'エラーメッセージ' }
-        </p>
-      </div>
-      <div className="formula-symbol">－</div>
-      <div className="amount-form">
-        <h3>投資金額</h3>
+        
+        <h3 className="invest-title amount-name">投資額</h3>
         <input
+          className="invest-ammount amount-form"
           type="text"
-          placeholder="投資金額を入力してください"
+          placeholder="投資額を入力してください"
           {...register('invest', {
             pattern: {
               value: /^[0-9]+$/,
@@ -85,14 +83,17 @@ const BalanceCalculator: React.FC = () => {
             onChange: (event) => { handleBalance(event) }
           })}
         />
-        <p className={`error-msg ${errors.invest && 'on-error'}`}>
-          { errors.invest ? errors.invest.message : 'エラーメッセージ' }
+
+        <h3 className="benefit-title amount-name">利益</h3>
+        <div className="benefit-amount benefit-zone">
+          { balance.benefit }
+        </div>
+  
+        <p className={`error-msg ${(errors.income || errors.invest) && 'on-error'}`}>
+          { errors.income ? errors.income.message : (
+            errors.invest ? errors.invest.message : '')
+          }
         </p>
-      </div>
-      <div className="formula-symbol">=</div>
-      <div className="amount-form benefit-zone">
-        <h3>利益</h3>
-        <div className="benefit">{ balance.benefit }</div>
       </div>
     </div>
   )
