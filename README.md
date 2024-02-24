@@ -1,6 +1,26 @@
-# Getting Started with Create React App
+# my-juggler-estimator
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Web application to estimate settings of My Juggler 5
+
+## User Interface
+
+<details>
+<summary>estimation</summary>
+
+The app estimates the settings based on the number of hits and misses.
+
+<image src="https://github.com/kimurash/my-juggler-estimator/assets/72291064/ec38cb21-85c5-4936-bb09-0553078c4c08" width="700" alt="estimation">
+
+</details>
+
+<details>
+<summary>balance calculation</summary>
+
+Profit can be calculated by entering the amounts of expense and income.
+
+<image src="https://github.com/kimurash/my-juggler-estimator/assets/72291064/947b3839-f3de-459f-abda-365aa73b8cd4" width="500" alt="balance">
+
+</details>
 
 ## Available Scripts
 
@@ -39,7 +59,9 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+## Learn More about Create React App
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
